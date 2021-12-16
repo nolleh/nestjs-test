@@ -1,6 +1,7 @@
-import { Controller, Get, Req, Param, ParseIntPipe } from '@nestjs/common'
-import { CatsService } from './cats.service'
-import { Request } from 'express'
+import { Controller, Get, Req, Param, ParseIntPipe, UseInterceptors } from '@nestjs/common';
+import { CatsService } from './cats.service';
+import { Request } from 'express';
+import { LoggingInterceptor } from '../logging.interceptor';
 
 @Controller('cats')
 export class CatsController {
@@ -12,6 +13,8 @@ export class CatsController {
 
 	@Get('id/:id')
 	// using pipe for transform, in handler's parameter level
+	// - you can also pass in-place instance, to customize built-in pip's behavior.
+	// e.g. @Param('id' new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }))
 	async findOne(@Param('id', ParseIntPipe) id: number) {
 		console.log('findOne.. /id/:'+ id);
 		return this.catsService.findOne(id);
@@ -19,7 +22,8 @@ export class CatsController {
 
 	// @Param(key?: string)
 	// request lifetime = singleton. (node.js' every request is processed by sep. thread - meaning TLS?)
-  @Get()	
+  @UseInterceptors(LoggingInterceptor)
+	@Get()	
 	findAll(@Req() request: Request): string {
 		console.log('findAll');
 		// object or arrary : automatically serialized to JSON
