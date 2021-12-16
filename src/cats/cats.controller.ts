@@ -1,4 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common'
+import { Controller, Get, Req, Param, ParseIntPipe } from '@nestjs/common'
 import { CatsService } from './cats.service'
 import { Request } from 'express'
 
@@ -10,11 +10,18 @@ export class CatsController {
 	// by using @Inject('Property') decorator.  
 	constructor(private catsService: CatsService) {}
 
-	@Get(':id')
+	@Get('id/:id')
+	// using pipe for transform, in handler's parameter level
+	async findOne(@Param('id', ParseIntPipe) id: number) {
+		console.log('findOne.. /id/:'+ id);
+		return this.catsService.findOne(id);
+	}
+
 	// @Param(key?: string)
 	// request lifetime = singleton. (node.js' every request is processed by sep. thread - meaning TLS?)
+  @Get()	
 	findAll(@Req() request: Request): string {
-		console.log(request.params.id);
+		console.log('findAll');
 		// object or arrary : automatically serialized to JSON
 		// primitive type : just return the value
 		// status code : 200 by default, except for POST requests which user 201.
