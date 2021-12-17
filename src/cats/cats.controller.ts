@@ -2,6 +2,7 @@ import { Controller, Get, Req, Param, ParseIntPipe, UseInterceptors } from '@nes
 import { CatsService } from './cats.service';
 import { Request } from 'express';
 import { LoggingInterceptor } from '../logging.interceptor';
+import { User } from '../user.decorator';
 
 @Controller('cats')
 export class CatsController {
@@ -15,7 +16,7 @@ export class CatsController {
 	// using pipe for transform, in handler's parameter level
 	// - you can also pass in-place instance, to customize built-in pip's behavior.
 	// e.g. @Param('id' new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }))
-	async findOne(@Param('id', ParseIntPipe) id: number) {
+	async findOne(@Param('id', ParseIntPipe) id: number, @User('firstName') firstName: string) {
 		console.log('findOne.. /id/:'+ id);
 		return this.catsService.findOne(id);
 	}
