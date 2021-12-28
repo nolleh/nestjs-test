@@ -1,4 +1,4 @@
-import { Controller, Get, Req, Param, ParseIntPipe, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, Body, Req, Param, ParseIntPipe, UseInterceptors } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { Request } from 'express';
 import { LoggingInterceptor } from '../logging.interceptor';
@@ -32,6 +32,6 @@ export class CatsController {
 		// status code : 200 by default, except for POST requests which user 201.
 		// change status code with adding @HttpCode(...)
 		return 'This action return all cats';
-	}
+	} 
 }
 

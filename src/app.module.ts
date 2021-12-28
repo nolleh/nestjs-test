@@ -4,10 +4,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 import { LoggingInterceptor } from './logging.interceptor';
+import { GithubModule } from './github-webhook/github.module';
 
 // you can use @Global() decorator for module.
 @Module({
-  imports: [CatsModule],
+  imports: [CatsModule, GithubModule],
   controllers: [AppController],
   providers: [
 		AppService,
