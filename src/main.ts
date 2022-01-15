@@ -10,6 +10,7 @@ async function bootstrap() {
   setupSwagger(app);
   app.use(middlefunc);
   app.useGlobalInterceptors(new AppInterceptor());	
+
   await app.listen(3000);
 }
 bootstrap();
