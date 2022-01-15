@@ -7,6 +7,7 @@ import { LoggingInterceptor } from './logging.interceptor';
 
 // you can use @Global() decorator for module.
 @Module({
+	// put modules(catModule) that exports providers that requried in this module (AppModule)
   imports: [CatsModule],
   controllers: [AppController],
   providers: [

@@ -6,15 +6,18 @@ import { Cat } from '../interfaces/cat.interface';
 export class CatsService {
 		private readonly cats: Cat[] = [];
 
-		create(cat: Cat) {
+		async create(cat: Cat): Promise<Cat> {
+			// actual example is get from some storage.. 
+			// we just this use array. to understand. as simple example.
 			this.cats.push(cat);
+			return Promise.resolve(this.cats[this.cats.length-1]);
 		}
     
-		findOne(idx: number) {
-			return idx;
-			// return this.cats[idx];
+		async findOne(idx: number): Promise<Cat> {
+			return Promise.resolve(this.cats[idx]);
 		}
-		findAll(): Cat[] {
-			return this.cats;
+
+		async findAll(): Promise<Cat[]> {
+			return Promise.resolve(this.cats);
 		}
 }
