@@ -1,12 +1,12 @@
 export class GithubDto {	
-	action!: string;
-	label?: Label; 
-	organization!: Object;
+  action!: string;
+  label?: Label; 
+  organization!: Object;
     sender!: Sender;
 }
 
 class Sender {
-	login!: string;
+  login!: string;
     id!: number;
     node_id!: string;
     url!: string;
@@ -14,5 +14,5 @@ class Sender {
 }
 
 class Label {
-	name!: string;
+  name!: string;
 }
