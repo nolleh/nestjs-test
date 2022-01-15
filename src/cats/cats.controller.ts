@@ -14,8 +14,8 @@ export class CatsController {
   // - you can also use propery-based injection.
 	// by using @Inject('Property') decorator.  
 	constructor(private catsService: CatsService) {}
- 
-	@Post('id/:id')
+
+	@Post()
 	@ApiOperation( { summary: 'Create Cat', description: 'createCat' })
 	@ApiCreatedResponse( { description: 'create cat', type : Cat })
 	async create(@Body() cat: Cat): Promise<Cat> {
