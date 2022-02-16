@@ -6,7 +6,7 @@ import { CatsModule } from './cats/cats.module';
 import { LoggingInterceptor } from './logging.interceptor';
 import { GithubModule } from './github-webhook/github.module';
 import { AppMiddleware } from './app.middleware';
-import { AppInterceptor } from './app.interceptor';
+import { SerializeInterceptor } from 'serialize.interceptor';
 
 // you can use @Global() decorator for module.
 @Module({
@@ -15,7 +15,7 @@ import { AppInterceptor } from './app.interceptor';
   controllers: [AppController],
   providers: [
     AppService,
-    AppInterceptor,
+    SerializeInterceptor,
     // alternative global intercepting method, for injection other class
     {
       provide: APP_INTERCEPTOR,
