@@ -1,11 +1,10 @@
 import { Module, DynamicModule } from '@nestjs/common';
 import { DogController } from './dogs.controller';
 import { DogService } from './dogs.service';
-import { DogRepository } from '../repositories/dog.repository';
 
 @Module({
   controllers: [DogController],
-  providers: [DogService, DogRepository],
+  providers: [DogService],
 })
 export class DogModule {
   // a module class can inject providers as well.
