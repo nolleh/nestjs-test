@@ -10,7 +10,8 @@ export class DogService {
   public async getDogs(
     pageOptionsDto: PageOptionsDto,
   ): Promise<PageDto<Dog>> {
-    const queryBuilder = this._dogRepository.createQueryBuilder('user');
+    console.log(`how are you, repo?: ${this._dogRepository}`);
+    const queryBuilder = this._dogRepository.createQueryBuilder('dog');
 
     queryBuilder
       .orderBy('user.createdAt', pageOptionsDto.order)
