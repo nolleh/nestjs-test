@@ -4,7 +4,6 @@ import { PageMetaDto } from './page-meta.dto';
 
 // makes data and metadata dto
 export class PageDto<T> {
-
   @IsArray()
   @ApiProperty({ isArray: true })
   readonly data: T[];

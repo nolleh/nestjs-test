@@ -5,7 +5,11 @@ import { GithubDto } from './github.dto';
 export class GithubController {
   @Post('')
   handleWebHook(@Body() content: GithubDto) {
-    console.log("action: ", content.action, ", label.name: ", content?.label?.name);
+    console.log(
+      'action: ',
+      content.action,
+      ', label.name: ',
+      content?.label?.name,
+    );
   }
 }
-

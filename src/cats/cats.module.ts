@@ -1,4 +1,4 @@
-import { Module, DynamicModule } from '@nestjs/common'
+import { Module, DynamicModule } from '@nestjs/common';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
 
@@ -6,7 +6,6 @@ import { CatsService } from './cats.service';
   controllers: [CatsController],
   providers: [CatsService],
 })
-
 export class CatsModule {
   // a module class can inject providers as well.
   constructor(private catsService: CatsService) {}
@@ -23,4 +22,3 @@ export class CatsModule {
     };
   }
 }
-

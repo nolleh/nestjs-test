@@ -8,9 +8,7 @@ import { AppDataSource } from 'data-source';
 export class DogService {
   // constructor(private readonly _dogRepository: DogRepository) {}
 
-  public async getDogs(
-    pageOptionsDto: PageOptionsDto,
-  ): Promise<PageDto<Dog>> {
+  public async getDogs(pageOptionsDto: PageOptionsDto): Promise<PageDto<Dog>> {
     const repository = AppDataSource.getRepository(DogEntity);
     console.log(`how are you, repo?: ${repository}`);
     const queryBuilder = repository.createQueryBuilder('dog');

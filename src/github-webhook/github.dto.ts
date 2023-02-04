@@ -1,16 +1,16 @@
-export class GithubDto {	
+export class GithubDto {
   action!: string;
-  label?: Label; 
+  label?: Label;
   organization!: Object;
-    sender!: Sender;
+  sender!: Sender;
 }
 
 class Sender {
   login!: string;
-    id!: number;
-    node_id!: string;
-    url!: string;
-    type!: string;
+  id!: number;
+  node_id!: string;
+  url!: string;
+  type!: string;
 }
 
 class Label {
