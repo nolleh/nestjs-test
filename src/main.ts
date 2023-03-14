@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { setupSwagger } from './app.bootstrap';
 import { middlefunc } from './app.middleware';
-// import { SerializeInterceptor, camelToSnake } from 'serialize-interceptor';
+import { SerializeInterceptor } from 'serialize-interceptor';
 import { AppDataSource } from 'data-source';
 
 async function bootstrap() {
@@ -12,7 +12,7 @@ async function bootstrap() {
   setupSwagger(app);
   app.use(middlefunc);
   // camelToSnake(null);
-  // app.useGlobalInterceptors(new SerializeInterceptor());
+  app.useGlobalInterceptors(new SerializeInterceptor());
   //
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
