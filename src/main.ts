@@ -4,7 +4,7 @@ import { AppModule } from './app.module';
 import { setupSwagger } from './app.bootstrap';
 import { middlefunc } from './app.middleware';
 import { SerializeInterceptor } from 'serialize-interceptor';
-import { AppDataSource } from 'data-source';
+// import { AppDataSource } from 'data-source';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,7 +16,7 @@ async function bootstrap() {
   //
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
-  await AppDataSource.initialize();
+  // await AppDataSource.initialize();
   //  .then(() => {
   //    // here you can start to work with your database
   //  })

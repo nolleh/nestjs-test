@@ -33,7 +33,7 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "serialize-interceptor": "1.0.6",
+    "serialize-interceptor": "^1.1.0",
     "swagger-ui-express": "^4.3.0",
     "typeorm": "^0.3.7"
   },
