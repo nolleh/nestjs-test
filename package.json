@@ -81,7 +81,8 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coverageReporters": ["json-summary", "text"]
   },
   "lint-staged": {
     "*.(js,jsx,ts,md,json)": "pnpm format"
