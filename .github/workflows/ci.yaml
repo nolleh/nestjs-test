@@ -15,6 +15,4 @@ jobs:
       - name: Test and Cov
         run: pnpm test:cov
       - name: generate badge and publish to github pages
-        uses: nolleh/jest-badge-deploy-action@v0.0.3-test5
-        with:
-          folder: badges
+        uses: nolleh/jest-badge-deploy-action@vlatest
